@@ -17,13 +17,13 @@ let clickUpgrades = [
 let automaticUpgrades = [
     {
         name: 'Hatch Drone',
-        price: 10,
+        price: 20,
         quantity: 0,
         multiplier: 25
     },
     {
         name: 'Hatch Queen',
-        price: 100,
+        price: 200,
         quantity: 0,
         multiplier: 50
     }
@@ -32,13 +32,13 @@ let automaticUpgrades = [
 let spawnerUpgrades = [
     {
         name: 'Hatchery',
-        price: 100,
+        price: 200,
         quantity: 0,
         multiplier: 1,
     },
     {
         name: 'Hive',
-        price: 1000,
+        price: 2000,
         quantity: 0,
         multiplier: 1
     }
