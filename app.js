@@ -20,15 +20,21 @@ let automaticUpgrades = [
         price: 10,
         quantity: 0,
         multiplier: 25
+    },
+    {
+        name: 'Hatch Queen',
+        price: 100,
+        quantity: 0,
+        multiplier: 50
     }
 ];
-
 let minerals = 0
 //variables n such end here
 
 //code starts here
 
 updatePage()
+setInterval(autoMinerals, 3000)
 
 
 //code ends here
@@ -53,34 +59,19 @@ function autoMinerals() {
     updatePage()
 }
 
-function sharpenMandibles() {
-    let mandibles = clickUpgrades[0]
-    if (minerals >= mandibles.price) {
-        mandibles.quantity++
-        minerals -= mandibles.price
-    }
-    updatePage()
-}
-
-function adrenalBooster() {
-    let adrenal = clickUpgrades[1]
-    if (minerals >= adrenal.price) {
-        adrenal.quantity++
-        minerals -= adrenal.price
-    }
-    updatePage()
-}
-
-function hatchDrone() {
-    let drones = automaticUpgrades[0]
-    if (minerals >= drones.price) {
-        drones.quantity++
-        minerals -= drones.price
+function upgrade(arrayName) {
+    let upgrade = arrayName
+    if (minerals >= upgrade.price) {
+        upgrade.quantity++
+        minerals -= upgrade.price
+        upgrade.price += upgrade.multiplier
     }
     updatePage()
 }
 
 function updatePage() {
+
+
     let mineralsElm = document.getElementById(`mineral-count`)
     mineralsElm.innerHTML = `<h1>${minerals}<h1/>`
     let mandiblesElm = document.getElementById(`mandible-count`)
@@ -89,7 +80,17 @@ function updatePage() {
     dronesElm.innerHTML = `${automaticUpgrades[0].quantity}`
     let adrenalElm = document.getElementById(`adrenal-count`)
     adrenalElm.innerHTML = `${clickUpgrades[1].quantity}`
+    let queenElm = document.getElementById(`queen-count`)
+    queenElm.innerHTML = `${automaticUpgrades[1].quantity}`
 
+    let mandiblesPriceElm = document.getElementById(`mandibles-price`)
+    mandiblesPriceElm.innerHTML = `${clickUpgrades[0].price}`
+    let dronesPriceElm = document.getElementById(`drone-price`)
+    dronesPriceElm.innerHTML = `${automaticUpgrades[0].price}`
+    let adrenalPriceElm = document.getElementById(`adrenal-price`)
+    adrenalPriceElm.innerHTML = `${clickUpgrades[1].price}`
+    let queenPriceElm = document.getElementById(`queen-price`)
+    queenPriceElm.innerHTML = `${automaticUpgrades[1].price}`
 
     let clickStatsElm = document.getElementById(`click-stats`)
     let clickStats = 0
@@ -98,6 +99,14 @@ function updatePage() {
 
     });
     clickStatsElm.innerHTML = `${clickStats}`
+
+    let autoStatsElm = document.getElementById(`auto-stats`)
+    let autoStats = 0
+    automaticUpgrades.forEach(upgrade => {
+        autoStats += upgrade.quantity * upgrade.multiplier
+
+    });
+    autoStatsElm.innerHTML = `${autoStats}`
 }
 
 //functions end here

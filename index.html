@@ -51,20 +51,25 @@
                 </h2>
                 <h3>Sharpen Mandibles x
                     <span id="mandible-count">1</span>
-                    <button class="upgrade-buttons" onclick="sharpenMandibles()">1</button>
+                    <button id="mandibles-price" class="upgrade-buttons" onclick="upgrade(clickUpgrades[0])">1</button>
                 </h3>
                 <h3>Adrenal Booster x
                     <span id="adrenal-count">0</span>
-                    <button class="upgrade-buttons" onclick="adrenalBooster()">5</button>
+                    <button id="adrenal-price" class="upgrade-buttons" onclick="upgrade(clickUpgrades[1])">5</button>
                 </h3>
             </div>
             <div class="col-6">
                 <h2>Upgrades
                     <hr class="mt-1" />
                 </h2>
-                <h3>Hatch Drones x
+                <h3>Hatch Drone x
                     <span id="drone-count">0</span>
-                    <button class="upgrade-buttons" onclick="hatchDrone()">10</button>
+                    <button id="drone-price" class="upgrade-buttons" onclick="upgrade(automaticUpgrades[0])">10</button>
+                </h3>
+                <h3>Hatch Queen x
+                    <span id="queen-count">0</span>
+                    <button id="queen-price" class="upgrade-buttons"
+                        onclick="upgrade(automaticUpgrades[1])">100</button>
                 </h3>
             </div>
         </div>
