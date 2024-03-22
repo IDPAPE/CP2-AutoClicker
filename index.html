@@ -16,61 +16,103 @@
 <body class="debug">
     <main class="container-fluid">
         <section class="row justify-content-center">
-            <div class="col-6">
-                <h1>Swarm Manager</h1>
+            <div class="col-10 orangeText text-center title-text">
+                <p>Swarm Manager</p>
             </div>
         </section>
         <section class="row justify-content-center">
-            <div class="col-4" onclick="clickMinerals()">
-                <h1>
-                    💎
-                </h1>
+            <div class="col text-center" onclick="clickMinerals()">
+                <img class="text-center minerals" src="MineralsNoBG.png" alt="💎">
             </div>
         </section>
     </main>
     <footer class="container">
         <div class="row justify-content-center">
-            <div class="col-2">
-                <h3 id="click-stats">
-                    Click Stats
+            <div
+                class="col-2 orangeBg mt-3 rounded rounded-bottom-0 rounded-end-0 border border-5 border-bottom-0 border-end-0">
+                <h3>
+                    <span id="click-stats">Click Stats</span>
+                    <span class="mdi mdi-cursor-default-click"></span>
+
                 </h3>
             </div>
-            <div id="mineral-count" class="col-4">
-                <h1>Mineral Count</h1>
+            <div class="col-4 orangeBg rounded-top border border-5 border-bottom-0">
+                <div class="row">
+                    <div class="col-2">
+                        <img class="inlineImg" src="OneMineral.png" alt="💎">
+                    </div>
+                    <div class="col-10">
+                        <h1 id="mineral-count">Mineral Count</h1>
+                    </div>
+                </div>
             </div>
-            <div class="col-2">
-                <h3 id="auto-stats">
-                    auto stats
+            <div
+                class="col-2 orangeBg mt-3 rounded rounded-start-0 rounded-bottom-0 border border-5 border-bottom-0 border-start-0">
+                <h3>
+                    <span id="auto-stats"> auto stats</span>
+                    <span class="mdi mdi-clock"></span>
                 </h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row orangeBg rounded border border-5">
             <div class="col-6">
-                <h2>Upgrades
-                    <hr class="mt-1" />
-                </h2>
-                <h3>Sharpen Mandibles x
-                    <span id="mandible-count">1</span>
-                    <button id="mandibles-price" class="upgrade-buttons" onclick="upgrade(clickUpgrades[0])">1</button>
-                </h3>
-                <h3>Adrenal Booster x
-                    <span id="adrenal-count">0</span>
-                    <button id="adrenal-price" class="upgrade-buttons" onclick="upgrade(clickUpgrades[1])">5</button>
-                </h3>
+                <div class="row">
+                    <h2>Click Upgrades
+                        <hr class="mt-1" />
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <h3>Sharpen Mandibles x
+                            <span id="mandible-count">1</span>
+                        </h3>
+                    </div>
+                    <div class="col-3">
+                        <h3><button id="mandibles-price" class="upgrade-buttons"
+                                onclick="upgrade(clickUpgrades[0])">1</button></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <h3>Adrenal Booster x
+                            <span id="adrenal-count">0</span>
+                        </h3>
+                    </div>
+                    <div class="col-3">
+                        <h3><button id="adrenal-price" class="upgrade-buttons"
+                                onclick="upgrade(clickUpgrades[1])">5</button></h3>
+                    </div>
+                </div>
+
             </div>
             <div class="col-6">
-                <h2>Upgrades
-                    <hr class="mt-1" />
-                </h2>
-                <h3>Hatch Drone x
-                    <span id="drone-count">0</span>
-                    <button id="drone-price" class="upgrade-buttons" onclick="upgrade(automaticUpgrades[0])">10</button>
-                </h3>
-                <h3>Hatch Queen x
-                    <span id="queen-count">0</span>
-                    <button id="queen-price" class="upgrade-buttons"
-                        onclick="upgrade(automaticUpgrades[1])">100</button>
-                </h3>
+                <div class="row">
+                    <h2>Auto Upgrades
+                        <hr class="mt-1" />
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <h3>Hatch Drone x
+                            <span id="drone-count">0</span>
+                        </h3>
+                    </div>
+                    <div class="col-3">
+                        <h3><button id="drone-price" class="upgrade-buttons"
+                                onclick="upgrade(automaticUpgrades[0])">10</button></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <h3>Hatch Queen x
+                            <span id="queen-count">0</span>
+                        </h3>
+                    </div>
+                    <div class="col-3">
+                        <h3> <button id="queen-price" class="upgrade-buttons"
+                                onclick="upgrade(automaticUpgrades[1])">100</button></h3>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

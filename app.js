@@ -73,7 +73,7 @@ function updatePage() {
 
 
     let mineralsElm = document.getElementById(`mineral-count`)
-    mineralsElm.innerHTML = `<h1>${minerals}<h1/>`
+    mineralsElm.innerHTML = `${minerals}`
     let mandiblesElm = document.getElementById(`mandible-count`)
     mandiblesElm.innerHTML = `${clickUpgrades[0].quantity}`
     let dronesElm = document.getElementById(`drone-count`)

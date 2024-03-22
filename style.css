@@ -1,3 +1,32 @@
+body {
+    background-image: url(//imgs.search.brave.com/iPT_lRGY3v6NyCtx3YQjbqJXXs06Vy35txhimD9M9dI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC9ha2dVZlBT/LmpwZw);
+    background-size: cover;
+}
+
 .upgrade-buttons {
     min-width: 100 px;
+}
+
+.minerals {
+    min-height: 60dvh;
+    filter: drop-shadow(0 0 7px rgb(233, 233, 233));
+    user-select: none;
+}
+
+.inlineImg {
+    max-width: 100%;
+}
+
+.orangeText {
+    color: #d66903;
+}
+
+.title-text {
+    font-size: 64px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px rgb(107, 25, 0), 0 0 1em rgb(70, 34, 117), 0 0 0.2em rgb(147, 45, 194);
+}
+
+.orangeBg {
+    background-color: #d66903;
 }
