@@ -93,7 +93,7 @@ function upgrade(arrayName) {
     if (minerals >= upgrade.price) {
         upgrade.quantity++
         minerals -= upgrade.price
-        upgrade.price *= 1.25
+        upgrade.price *= 1.1
     }
     updatePage()
 }
