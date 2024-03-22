@@ -28,6 +28,21 @@ let automaticUpgrades = [
         multiplier: 50
     }
 ];
+
+let spawnerUpgrades = [
+    {
+        name: 'Hatchery',
+        price: 1,
+        quantity: 0,
+        multiplier: 1
+    },
+    {
+        name: 'Hive',
+        price: 1,
+        quantity: 0,
+        multiplier: 1
+    }
+]
 let minerals = 0
 //variables n such end here
 
@@ -35,6 +50,7 @@ let minerals = 0
 
 updatePage()
 setInterval(autoMinerals, 3000)
+setInterval(autoSpawn, 3000)
 
 
 //code ends here
@@ -59,12 +75,23 @@ function autoMinerals() {
     updatePage()
 }
 
+function autoSpawn() {
+    let droneSpawns = 0
+    let queenSpawns = 0
+    droneSpawns += spawnerUpgrades[0].quantity * spawnerUpgrades[0].multiplier
+    queenSpawns += spawnerUpgrades[1].quantity * spawnerUpgrades[1].multiplier
+    automaticUpgrades[0].quantity += droneSpawns
+    automaticUpgrades[1].quantity += queenSpawns
+    updatePage()
+}
+
 function upgrade(arrayName) {
     let upgrade = arrayName
     if (minerals >= upgrade.price) {
         upgrade.quantity++
         minerals -= upgrade.price
         upgrade.price += upgrade.multiplier
+        console.log(upgrade.quantity)
     }
     updatePage()
 }
@@ -82,6 +109,16 @@ function updatePage() {
     adrenalElm.innerHTML = `${clickUpgrades[1].quantity}`
     let queenElm = document.getElementById(`queen-count`)
     queenElm.innerHTML = `${automaticUpgrades[1].quantity}`
+    // console.log('hatcheries:', spawnerUpgrades[0])
+    // console.log('hives:', spawnerUpgrades[1])
+    let hatcheryCountElm = document.getElementById(`hatchery-count`)
+    hatcheryCountElm.innerHTML = `${spawnerUpgrades[0].quantity}`
+    let hiveCountElm = document.getElementById(`hive-count`)
+    hiveCountElm.innerHTML = `${spawnerUpgrades[1].quantity}`
+    let hatcheryAmountElm = document.getElementById(`hatchery-amount`)
+    hatcheryAmountElm.innerHTML = `${spawnerUpgrades[0].quantity}`
+    let hiveAmountElm = document.getElementById(`hive-amount`)
+    hiveAmountElm.innerHTML = `${spawnerUpgrades[1].quantity}`
 
     let mandiblesPriceElm = document.getElementById(`mandibles-price`)
     mandiblesPriceElm.innerHTML = `${clickUpgrades[0].price}`
@@ -91,6 +128,13 @@ function updatePage() {
     adrenalPriceElm.innerHTML = `${clickUpgrades[1].price}`
     let queenPriceElm = document.getElementById(`queen-price`)
     queenPriceElm.innerHTML = `${automaticUpgrades[1].price}`
+    let hatcheryPriceElm = document.getElementById(`hatchery-price`)
+    hatcheryPriceElm.innerHTML = `${spawnerUpgrades[0].price}`
+    let hivePriceElm = document.getElementById(`hive-price`)
+    hivePriceElm.innerHTML = `${spawnerUpgrades[1].price}`
+
+
+
 
     let clickStatsElm = document.getElementById(`click-stats`)
     let clickStats = 0

@@ -8,7 +8,7 @@ body {
 }
 
 .minerals {
-    min-height: 60dvh;
+    min-height: 50dvh;
     filter: drop-shadow(0 0 7px rgb(233, 233, 233));
     user-select: none;
 }
@@ -29,4 +29,9 @@ body {
 
 .orangeBg {
     background-color: #d66903;
+}
+
+.border-Color {
+    border-color: #9c510b !important;
+    /* Forgive me bootstrap made me do it */
 }
