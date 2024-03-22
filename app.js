@@ -2,13 +2,13 @@
 let clickUpgrades = [
     {
         name: 'Sharpen Mandibles',
-        price: 1,
+        price: 2,
         quantity: 1,
         multiplier: 1
     },
     {
         name: 'Adrenal Booster',
-        price: 5,
+        price: 6,
         quantity: 0,
         multiplier: 5
     }
@@ -32,18 +32,19 @@ let automaticUpgrades = [
 let spawnerUpgrades = [
     {
         name: 'Hatchery',
-        price: 1,
+        price: 100,
         quantity: 0,
-        multiplier: 1
+        multiplier: 1,
     },
     {
         name: 'Hive',
-        price: 1,
+        price: 1000,
         quantity: 0,
         multiplier: 1
     }
 ]
 let minerals = 0
+let totalMinerals = 0
 //variables n such end here
 
 //code starts here
@@ -63,6 +64,7 @@ function clickMinerals() {
         clickPower += upgrade.quantity * upgrade.multiplier
     });
     minerals += clickPower
+    totalMinerals += clickPower
     updatePage()
 }
 
@@ -72,6 +74,7 @@ function autoMinerals() {
         autoPower += upgrade.quantity * upgrade.multiplier
     });
     minerals += autoPower
+    totalMinerals += autoPower
     updatePage()
 }
 
@@ -90,8 +93,7 @@ function upgrade(arrayName) {
     if (minerals >= upgrade.price) {
         upgrade.quantity++
         minerals -= upgrade.price
-        upgrade.price += upgrade.multiplier
-        console.log(upgrade.quantity)
+        upgrade.price *= 1.25
     }
     updatePage()
 }
@@ -100,7 +102,9 @@ function updatePage() {
 
 
     let mineralsElm = document.getElementById(`mineral-count`)
-    mineralsElm.innerHTML = `${minerals}`
+    mineralsElm.innerHTML = `${minerals.toFixed(1)}`
+    let totalMineralsElm = document.getElementById(`total-minerals`)
+    totalMineralsElm.innerHTML = `${totalMinerals.toFixed(1)}`
     let mandiblesElm = document.getElementById(`mandible-count`)
     mandiblesElm.innerHTML = `${clickUpgrades[0].quantity}`
     let dronesElm = document.getElementById(`drone-count`)
@@ -109,8 +113,7 @@ function updatePage() {
     adrenalElm.innerHTML = `${clickUpgrades[1].quantity}`
     let queenElm = document.getElementById(`queen-count`)
     queenElm.innerHTML = `${automaticUpgrades[1].quantity}`
-    // console.log('hatcheries:', spawnerUpgrades[0])
-    // console.log('hives:', spawnerUpgrades[1])
+
     let hatcheryCountElm = document.getElementById(`hatchery-count`)
     hatcheryCountElm.innerHTML = `${spawnerUpgrades[0].quantity}`
     let hiveCountElm = document.getElementById(`hive-count`)
@@ -121,17 +124,17 @@ function updatePage() {
     hiveAmountElm.innerHTML = `${spawnerUpgrades[1].quantity}`
 
     let mandiblesPriceElm = document.getElementById(`mandibles-price`)
-    mandiblesPriceElm.innerHTML = `${clickUpgrades[0].price}`
+    mandiblesPriceElm.innerHTML = `${clickUpgrades[0].price.toFixed(1)}`
     let dronesPriceElm = document.getElementById(`drone-price`)
-    dronesPriceElm.innerHTML = `${automaticUpgrades[0].price}`
+    dronesPriceElm.innerHTML = `${automaticUpgrades[0].price.toFixed(1)}`
     let adrenalPriceElm = document.getElementById(`adrenal-price`)
-    adrenalPriceElm.innerHTML = `${clickUpgrades[1].price}`
+    adrenalPriceElm.innerHTML = `${clickUpgrades[1].price.toFixed(1)}`
     let queenPriceElm = document.getElementById(`queen-price`)
-    queenPriceElm.innerHTML = `${automaticUpgrades[1].price}`
+    queenPriceElm.innerHTML = `${automaticUpgrades[1].price.toFixed(1)}`
     let hatcheryPriceElm = document.getElementById(`hatchery-price`)
-    hatcheryPriceElm.innerHTML = `${spawnerUpgrades[0].price}`
+    hatcheryPriceElm.innerHTML = `${spawnerUpgrades[0].price.toFixed(1)}`
     let hivePriceElm = document.getElementById(`hive-price`)
-    hivePriceElm.innerHTML = `${spawnerUpgrades[1].price}`
+    hivePriceElm.innerHTML = `${spawnerUpgrades[1].price.toFixed(1)}`
 
 
 
